@@ -1,0 +1,28 @@
+.app__searchRecipes-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+.input-wrapper {
+    position: relative;
+    width: 250px;
+    
+    
+    input {
+        width: 100%;
+        padding: 0.95rem;
+        border: none;
+        border-radius: 7px;
+        outline: none;
+        background-color: var(--secondary-color);
+    }
+    svg {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
