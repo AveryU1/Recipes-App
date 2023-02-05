@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { BiSearch } from "react-icons/bi";
-import Recipes from "../components/Recipes/Recipes";
-import { fetchData, recipesOptions } from "../utils/fetchData";
+import Recipes from "../Recipes/Recipes";
+import { fetchData, recipesOptions } from "../../utils/fetchData";
 import "./SearchRecipes.scss";
-const SearchRecipes = () => {
+const SearchRecipes = ({ recipes, setRecipes }) => {
   const [inputSearch, setInputSearch] = useState("");
-  const [recipes, setRecipes] = useState([]);
 
   const handleInputSearch = async () => {
-    const url = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=${inputSearch}`;
+    const url = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=${inputSearch}&number=20`;
 
     const recipesData = await fetchData(url, recipesOptions);
 
-    setRecipes(recipesData);
+    setRecipes(recipesData.results);
+    console.log(recipesData);
     setInputSearch("");
-    console.log(recipes);
   };
 
   return (
@@ -27,9 +26,7 @@ const SearchRecipes = () => {
         />
         <BiSearch onClick={handleInputSearch} />
       </div>
-      {recipes?.map(({ title, id }) => (
-        <Recipes key={id} recipes={title} />
-      ))}
+      <Recipes recipes={recipes} id={recipes.id} />
     </div>
   );
 };

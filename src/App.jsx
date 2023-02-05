@@ -4,14 +4,15 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
-import SearchRecipes from "./pages/SearchRecipes";
+import RecipeDetails from "./pages/RecipeDetails/RecipeDetails";
+
 function App() {
   return (
     <div className="App">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/recipe/:id" element={<SearchRecipes />} />
+        <Route path="/recipes/:id/information" element={<RecipeDetails />} />
       </Routes>
     </div>
   );

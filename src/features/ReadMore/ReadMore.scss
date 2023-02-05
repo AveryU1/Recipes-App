@@ -1,0 +1,35 @@
+div {
+
+    .stepsList {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 15px;
+            li {
+                display: block;
+                color: var(--font-color);
+                padding: .8rem 0;
+                
+            }
+            div {
+                
+                svg {
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+            hr {
+                border: 4px solid gray;
+            }
+        
+    }
+    button {
+        background: transparent;
+        border: none;
+        font-size: 1rem;
+        font-family: var(--font-base);
+        color: var(--font-color);
+    }
+}
+ 

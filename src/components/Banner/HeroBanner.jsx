@@ -8,8 +8,9 @@ const HeroBanner = () => {
     <div className="app__hero-container">
       <div>
         <h1>
-          Your recipes in <span>one place</span>
+          Your recipes in <br />
         </h1>
+        <h3>one place</h3>
       </div>
       <div className="app__hero-banner-img">
         <img src={heroImg} alt="banner-Hero" />

@@ -2,14 +2,17 @@
     padding: 2rem 1rem;
     div {
         margin-top: 2rem;
+        text-align: center;
         h1 {
-            color: var(--font-color);
             text-transform: capitalize;
             font-size: 2rem;
-            span {
-                text-transform: uppercase;
-                font-size: 3rem;
-            }
+            
+        }
+        h3{
+            text-transform: uppercase;
+            font-size: 3rem;
+            margin-top: 1rem;
+            font-weight: 600;
         }
     }
     .app__hero-banner-img {

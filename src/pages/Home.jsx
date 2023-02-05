@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import HeroBanner from "../components/Banner/HeroBanner";
-import SearchRecipes from "./SearchRecipes";
+import SearchRecipes from "../components/SearchRecipes/SearchRecipes";
 
 const Home = () => {
+  const [recipes, setRecipes] = useState([]);
   return (
     <div>
       <HeroBanner />
-      <SearchRecipes />
+      <SearchRecipes recipes={recipes} setRecipes={setRecipes} />
     </div>
   );
 };
