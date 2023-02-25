@@ -1,9 +1,14 @@
 import React from "react";
 import { AiFillPushpin } from "react-icons/ai";
+import { motion } from "framer-motion";
 import "./Ingredientes.scss";
 const Ingredients = ({ extendedIngredients }) => {
   return (
-    <div className="ingredients-container">
+    <motion.div
+      className="ingredients-container"
+      whileInView={{ x: [100, 0], opacity: [0, 1] }}
+      transition={{ ease: "easeOut", duration: 1 }}
+    >
       <h3>Ingredients</h3>
       {extendedIngredients?.map((item, index) => (
         <ul key={index}>
@@ -18,7 +23,7 @@ const Ingredients = ({ extendedIngredients }) => {
           <hr />
         </ul>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

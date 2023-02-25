@@ -1,0 +1,20 @@
+a {
+  width: 15rem;
+  button {
+    width: 100%;
+    color: var(--primary-color);
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  .btn-login {
+    background: rgb(13, 103, 81);
+    background: linear-gradient(
+      90deg,
+      rgba(13, 103, 81, 1) 0%,
+      rgba(57, 212, 166, 1) 50%,
+      rgba(118, 245, 224, 1) 100%
+    );
+  }
+}

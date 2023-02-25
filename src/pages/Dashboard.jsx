@@ -4,6 +4,7 @@ import SearchRecipes from "../components/SearchRecipes/SearchRecipes";
 
 const Home = () => {
   const [recipes, setRecipes] = useState([]);
+
   return (
     <div>
       <HeroBanner />

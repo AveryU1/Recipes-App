@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import Recipes from "../Recipes/Recipes";
 import { fetchData, recipesOptions } from "../../utils/fetchData";
+import PropTypes from "prop-types";
 import "./SearchRecipes.scss";
 const SearchRecipes = ({ recipes, setRecipes }) => {
   const [inputSearch, setInputSearch] = useState("");
@@ -29,6 +30,11 @@ const SearchRecipes = ({ recipes, setRecipes }) => {
       <Recipes recipes={recipes} id={recipes.id} />
     </div>
   );
+};
+
+SearchRecipes.propTypes = {
+  recipes: PropTypes.array.isRequired,
+  setRecipes: PropTypes.array.isRequired,
 };
 
 export default SearchRecipes;
