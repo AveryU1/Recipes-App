@@ -1,6 +1,8 @@
+import { useStateDataContext } from "../../context/StateContext";
 import "./RecipeVideos.scss";
 
-const RecipeVideos = ({ recipesVideos, recipeDetails }) => {
+const RecipeVideos = () => {
+  const { recipesVideos, recipeDetails } = useStateDataContext();
   console.log(recipesVideos);
   const { title } = recipeDetails;
   return (

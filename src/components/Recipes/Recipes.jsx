@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useStateDataContext } from "../../context/StateContext";
 import "./Recipes.scss";
-const Recipes = ({ recipes }) => {
+const Recipes = () => {
+  const { recipes } = useStateDataContext();
+  console.log(recipes);
   return (
     <div className="app__recipes-container">
       {recipes.map(recipe => (

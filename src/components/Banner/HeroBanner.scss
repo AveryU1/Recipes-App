@@ -1,68 +1,65 @@
 .app__hero-container {
-    padding: 2rem 1rem;
-    div {
-        margin-top: 2rem;
-        text-align: center;
-        h1 {
-            text-transform: capitalize;
-            font-size: 2rem;
-            
-        }
-        h3{
-            text-transform: uppercase;
-            font-size: 3rem;
-            margin-top: 1rem;
-            font-weight: 600;
-        }
+  padding: 2rem 1rem;
+  div {
+    margin-top: 2rem;
+    text-align: center;
+    h1 {
+      text-transform: capitalize;
+      font-size: 1rem;
     }
-    .app__hero-banner-img {
-        img {
-            width: 100%;
-        }
+    h3 {
+      text-transform: uppercase;
+      font-size: 3rem;
+      margin-top: 1rem;
+      font-weight: 600;
     }
-    div:nth-child(3) {
-        background-color: var(--secondary-color);
-        padding: 1rem;
-        border-radius: 10px;
-        color: var(--font-color);
-        text-align: center;
-        h3 {
-            font-size: 1.2rem;
-        }
-        h4 {
-            text-align: center;
-            margin-top: .5rem;
-            font-size: 1rem;
-            span {
-                color:black;
-                font-weight: bold;
-            }
-        }
+  }
+  .app__hero-banner-img {
+    img {
+      width: 100%;
     }
-    div:nth-child(4) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        
-        svg {
-            width: 30px;
-            height: 30px;
-            animation: updown 1.5s linear infinite;
-                
-        
+  }
+  div:nth-child(3) {
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    border-radius: 10px;
+    color: var(--font-color);
+    text-align: center;
+    h3 {
+      font-size: 1.2rem;
+    }
+    h4 {
+      text-align: center;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      span {
+        color: black;
+        font-weight: bold;
+      }
+    }
+  }
+  div:nth-child(4) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      animation: updown 1.5s linear infinite;
     }
     @keyframes updown {
-        0% {
-            transform: translateY(-10px);
-        }
-        50% {
-            transform: translateY(10px);
-        }
-        100% {
-            transform: translateY(-10px);
-        }
+      0% {
+        transform: translateY(-10px);
+      }
+      50% {
+        transform: translateY(10px);
+      }
+      100% {
+        transform: translateY(-10px);
+      }
     }
-}
+  }
 }

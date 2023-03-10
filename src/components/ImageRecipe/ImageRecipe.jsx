@@ -1,8 +1,12 @@
+import { useStateDataContext } from "../../context/StateContext";
 import "./ImageRecipe.scss";
-const ImageRecipe = ({ imageRecipe, ingredients, title, nutritionData }) => {
+const ImageRecipe = () => {
+  const { nutritionData, recipeDetails } = useStateDataContext();
+  console.log(recipeDetails);
+  const { image, title, extendedIngredients } = recipeDetails;
   return (
     <div className="image-recipe-container">
-      <img src={imageRecipe} alt="image-recipe" />
+      <img src={image} alt="image-recipe" />
 
       <div>
         <div className="nutririonData">
@@ -11,7 +15,7 @@ const ImageRecipe = ({ imageRecipe, ingredients, title, nutritionData }) => {
           </div>
           <ul className="nutritionData-container">
             <li>
-              {ingredients?.length} <span>Ingredients</span>
+              {extendedIngredients?.length} <span>Ingredients</span>
             </li>
             <li>
               {nutritionData.calories} <span>Calories</span>

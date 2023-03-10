@@ -1,7 +1,9 @@
 import React from "react";
+import { useStateDataContext } from "../../context/StateContext";
 import ReadMore from "../../features/ReadMore/ReadMore";
 import "./StepsData.scss";
-const StepsData = ({ stepsData }) => {
+const StepsData = () => {
+  const { stepsData } = useStateDataContext();
   const firstHalf = stepsData?.slice(0, stepsData.length / 2);
   const secondHalf = stepsData.slice(stepsData.length / 2);
   return (

@@ -3,33 +3,18 @@ import "./Detail.scss";
 import Ingredients from "../../features/Ingredients/Ingredients";
 import StepsData from "../StepsData/StepsData";
 import Nutrients from "../Nutrients/Nutrients";
+import { useStateDataContext } from "../../context/StateContext";
 
-const Detail = ({
-  recipeDetails,
-  nutritionData,
-  stepsData,
-  goodNutrients,
-  badNutrients,
-}) => {
-  const { image, title, extendedIngredients } = recipeDetails;
-
+const Detail = () => {
   return (
     <div>
-      <ImageRecipe
-        imageRecipe={image}
-        ingredients={extendedIngredients}
-        title={title}
-        nutritionData={nutritionData}
-      />
+      <ImageRecipe />
       <div className="recipeDetails-container">
         <div className="recipeDetails-card">
-          <Ingredients extendedIngredients={extendedIngredients} />
-          <Nutrients
-            goodNutrients={goodNutrients}
-            badNutrients={badNutrients}
-          />
+          <Ingredients />
+          <Nutrients />
 
-          <StepsData stepsData={stepsData} />
+          <StepsData />
         </div>
       </div>
     </div>

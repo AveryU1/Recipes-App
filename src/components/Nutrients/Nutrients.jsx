@@ -1,7 +1,9 @@
 import Slider from "../../features/Slider/Slider";
 import "./Nutrients.scss";
 import { motion } from "framer-motion";
-const Nutrients = ({ goodNutrients, badNutrients }) => {
+import { useStateDataContext } from "../../context/StateContext";
+const Nutrients = () => {
+  const { goodNutrients, badNutrients } = useStateDataContext();
   const goodNutrientsArr = goodNutrients.slice(0, badNutrients.length);
   const nutrientsArr = goodNutrientsArr.concat(badNutrients);
   return (

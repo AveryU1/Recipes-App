@@ -1,14 +1,21 @@
 .app__navbar {
+  padding: 1rem;
   .app__navbar-container {
     display: flex;
     padding: 1rem;
     justify-content: space-between;
-    height: 4rem;
-    background-color: var(--secondary-color);
     align-items: center;
     .app__navbar-links-container {
       display: flex;
       justify-content: flex-start;
+    }
+    div {
+      a {
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
     }
   }
   .app__navbar-links {
@@ -22,18 +29,16 @@
     }
   }
   .app__navbar-menu {
-    width: 30px;
-    height: 30px;
     border-radius: 50%;
-
     display: flex;
     justify-content: center;
+    gap: 1rem;
     align-items: center;
     position: relative;
 
     svg {
-      width: 70%;
-      height: 70%;
+      width: 30px;
+      height: 30px;
     }
     div {
       display: flex;
@@ -59,8 +64,8 @@
         flex-direction: column;
       }
       svg {
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
       }
     }
 

@@ -2,15 +2,15 @@ import React from "react";
 import heroImg from "../../assets/hero.jpg";
 import "./HeroBanner.scss";
 import { BiDownArrowAlt } from "react-icons/bi";
+import { useAuth } from "../../context/authContext";
 
 const HeroBanner = () => {
+  const { user } = useAuth();
+
   return (
     <div className="app__hero-container">
       <div>
-        <h1>
-          Your recipes in <br />
-        </h1>
-        <h3>one place</h3>
+        <h1>Welcome {user.displayName || user.email}</h1>
       </div>
       <div className="app__hero-banner-img">
         <img src={heroImg} alt="banner-Hero" />

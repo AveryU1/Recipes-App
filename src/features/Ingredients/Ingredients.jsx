@@ -2,7 +2,10 @@ import React from "react";
 import { AiFillPushpin } from "react-icons/ai";
 import { motion } from "framer-motion";
 import "./Ingredientes.scss";
-const Ingredients = ({ extendedIngredients }) => {
+import { useStateDataContext } from "../../context/StateContext";
+const Ingredients = () => {
+  const { recipeDetails } = useStateDataContext();
+  const { extendedIngredients } = recipeDetails;
   return (
     <motion.div
       className="ingredients-container"

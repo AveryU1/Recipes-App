@@ -1,7 +1,9 @@
 import { LoginButton } from "../../features/LoginButton/LoginButton";
-import { LogoutButton } from "../../features/LogoutButton/LogoutButton";
 import { Profile } from "../../features/Profile/Profile";
+import { useAuth } from "../../context/authContext";
+import { RegisterButton } from "../../features/RegisterButton/RegisterButton";
 import "./Home.scss";
+import { Link } from "react-router-dom";
 export const Home = () => {
   return (
     <div className="home-container">
@@ -19,8 +21,14 @@ export const Home = () => {
       </section>
       <section className="btn-container">
         <nav>
-          <LoginButton />
-          <LogoutButton />
+          <Link to="/login">
+            <LoginButton />
+          </Link>
+          <Link to="/register">
+            <RegisterButton />
+          </Link>
+
+          {/* <LogoutButton /> */}
         </nav>
       </section>
     </div>
