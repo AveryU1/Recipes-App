@@ -1,4 +1,13 @@
 .form-login__container {
+  background-color: #000;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+}
+.form-login {
   background-color: rgb(246, 251, 250);
   text-align: center;
   display: flex;
@@ -10,6 +19,14 @@
     font-size: 2rem;
     margin: 4rem 0;
     color: #1f1e1d;
+    @media screen and (min-width: 768px) {
+      margin: 2rem 0;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    width: 30rem;
+    max-height: 35rem;
+    border-radius: 15px;
   }
 }
 
@@ -30,25 +47,26 @@
       -webkit-box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.55);
       -moz-box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.55);
       box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.55);
+      @media screen and (min-width: 768px) {
+        width: 80%;
+      }
     }
   }
-  div {
-    width: 100%;
-    button {
-      padding: 1rem;
-    }
-  }
-  div {
-    width: 100%;
+
+  .btn-login__container {
     button {
       width: 100%;
       color: var(--primary-color);
       margin-top: 2rem;
+      margin-bottom: 2rem;
       padding: 1rem;
       border-radius: 20px;
       font-size: 1.6rem;
       font-weight: 600;
       background-color: rgb(2, 252, 177);
+      @media screen and (min-width: 768px) {
+        width: 80%;
+      }
     }
   }
   .btn-forget-password {
@@ -59,9 +77,14 @@
 .google-btn-container {
   display: flex;
   flex-direction: column;
+  align-self: center;
+  justify-content: center;
   gap: 2rem;
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    align-items: center;
+  }
   button {
-    width: 100%;
     padding: 1rem;
     border-radius: 20px;
     background-color: rgb(246, 251, 250);
@@ -70,6 +93,9 @@
     -webkit-box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.55);
     -moz-box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.55);
     box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.55);
+    @media screen and (min-width: 768px) {
+      width: 80%;
+    }
   }
   div {
     a {

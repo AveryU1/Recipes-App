@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import Recipes from "../Recipes/Recipes";
-import { fetchData, recipesOptions } from "../../utils/fetchData";
-import PropTypes from "prop-types";
 import "./SearchRecipes.scss";
 import { useStateDataContext } from "../../context/StateContext";
 const SearchRecipes = () => {
-  const { inputSearch, setInputSearch, handleInputSearch } =
+  const { inputSearch, setInputSearch, setSearch, search } =
     useStateDataContext();
 
   return (
@@ -17,7 +15,7 @@ const SearchRecipes = () => {
           value={inputSearch}
           onChange={e => setInputSearch(e.target.value.toLocaleLowerCase())}
         />
-        <BiSearch onClick={handleInputSearch} />
+        <BiSearch onClick={() => setSearch(!search)} />
       </div>
       <Recipes />
     </div>

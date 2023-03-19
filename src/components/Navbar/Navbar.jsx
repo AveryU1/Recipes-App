@@ -21,7 +21,7 @@ const Navbar = () => {
         <div className="app__navbar-links-container">
           <ul className="app__navbar-links">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/home">Home</Link>
             </li>
             <li>
               <a href="#recipes">Recipes</a>
@@ -39,7 +39,7 @@ const Navbar = () => {
 
               <ul className="app__navbar-menu-links">
                 <li>
-                  <Link to="/dashboard">Home</Link>
+                  <Link to="/home">Home</Link>
                 </li>
                 <li>
                   <a href="#recipes">Recipes</a>

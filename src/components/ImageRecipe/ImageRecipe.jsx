@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useStateDataContext } from "../../context/StateContext";
 import "./ImageRecipe.scss";
 const ImageRecipe = () => {
@@ -7,7 +8,9 @@ const ImageRecipe = () => {
   return (
     <div className="image-recipe-container">
       <img src={image} alt="image-recipe" />
-
+      <Link to="/home">
+        <h1>Atras</h1>
+      </Link>
       <div>
         <div className="nutririonData">
           <div className="title-container">

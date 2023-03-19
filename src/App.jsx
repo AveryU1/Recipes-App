@@ -1,17 +1,14 @@
-import { useState } from "react";
-
 import "./App.css";
-import { Routes, Route, useParams } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
-import Dashboard from "./pages/Dashboard";
+import { Routes, Route } from "react-router-dom";
 import RecipeDetails from "./pages/RecipeDetails/RecipeDetails";
-import { Home } from "./pages/Home/Home";
 import { AuthProvider } from "./context/authContext";
 import { Register } from "./pages/Register/Register";
 import { Login } from "./pages/Login/Login";
 import { ProtectedRoute } from "./features/ProtectedRoute";
 import { ForgotPassowrd } from "./pages/ForgotPassword/ForgotPassowrd";
 import { StateContext } from "./context/StateContext";
+import { Welcome } from "./pages/Welcome/Welcome";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -20,15 +17,15 @@ function App() {
       <AuthProvider>
         <StateContext>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Welcome />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login/forgot-password" element={<ForgotPassowrd />} />
             <Route
-              path="/dashboard"
+              path="/home"
               element={
                 <ProtectedRoute>
-                  <Dashboard />
+                  <Home />
                 </ProtectedRoute>
               }
             />
