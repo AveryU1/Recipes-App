@@ -4,7 +4,7 @@ import { useAuth } from "../../context/authContext";
 import { RegisterButton } from "../../features/RegisterButton/RegisterButton";
 import "./Welcome.scss";
 import { Link } from "react-router-dom";
-export const Welcome = () => {
+const Welcome = () => {
   return (
     <div className="home-container">
       <section className="img-container">
@@ -35,3 +35,5 @@ export const Welcome = () => {
     </div>
   );
 };
+
+export default Welcome;

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.scss";
-export const Login = () => {
+const Login = () => {
   const { login, loginWithGoogle } = useAuth();
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -17,17 +17,19 @@ export const Login = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     setError("");
-    try {
-      await login(user.email, user.password); //login viene de authContext, comunicacion entre componentes, user es el estado
-      navigate("/home"); //si se registra el usuario, nos redirige a Dashboard
-    } catch (error) {
-      console.log(error.code);
-      if (error.code === "auth/internal-error") {
-        setError("correo invalido");
-      } else if (error.code === "auth/wrong-password") {
-        setError("Contrasena incorrecta");
+    if (user.email && user.password !== "") {
+      try {
+        await login(user.email, user.password); //login viene de authContext, comunicacion entre componentes, user es el estado
+        navigate("/home"); //si se registra el usuario, nos redirige a Dashboard
+      } catch (error) {
+        console.log(error.code);
+        if (error.code === "auth/internal-error") {
+          setError("correo invalido");
+        } else if (error.code === "auth/wrong-password") {
+          setError("Contrasena incorrecta");
+        }
       }
-    }
+    } else setError("Por favor ingrese un correo y contrasena validos");
   };
   const handleGoogleLogin = async () => {
     await loginWithGoogle();
@@ -74,3 +76,4 @@ export const Login = () => {
     </div>
   );
 };
+export default Login;
