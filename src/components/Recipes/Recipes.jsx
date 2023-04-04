@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import { useStateDataContext } from "../../context/StateContext";
 import "./Recipes.scss";
 const Recipes = () => {
-  const { recipes } = useStateDataContext();
+  const { recipes, currentPage } = useStateDataContext();
+  console.log(recipes);
 
   return (
     <div className="app__recipes-container">
-      {recipes.map(recipe => (
+      {recipes?.map(recipe => (
         <Link
           key={recipe.id}
           className="app__recipes-card"

@@ -1,3 +1,13 @@
-.app__detail-container {
-  padding: 2rem 1rem 1rem;
+.recipeDetails-container {
+  @media screen and (min-width: 900px) {
+    width: min(90%, 1280px);
+    margin: 0 auto;
+    padding: 0;
+  }
+  .recipeDetails-navbar {
+    display: none;
+    @media screen and (min-width: 900px) {
+      display: flex;
+    }
+  }
 }

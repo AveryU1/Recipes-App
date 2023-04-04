@@ -11,7 +11,7 @@ const Navbar = () => {
     await logout();
   };
   return (
-    <div className="app__navbar">
+    <div className="app__navbar recipeDetails-navbar">
       <nav className="app__navbar-container">
         <div>
           <Link to="/">
@@ -25,6 +25,11 @@ const Navbar = () => {
             </li>
             <li>
               <a href="#recipes">Recipes</a>
+            </li>
+            <li>
+              <a href="">
+                <button onClick={handleLogout}>Logout</button>
+              </a>
             </li>
           </ul>
         </div>

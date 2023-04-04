@@ -19,7 +19,7 @@ const Register = () => {
     if (user.email && user.password !== "") {
       try {
         await signUp(user.email, user.password); //singUp viene de authContext, comunicacion entre componentes, user es el estado
-        navigate("/dashboard"); //si se registra el usuario, nos redirige a Dashboard
+        navigate("/home"); //si se registra el usuario, nos redirige a Dashboard
       } catch (error) {
         console.log(error);
         if (error.code === "auth/internal-error") {

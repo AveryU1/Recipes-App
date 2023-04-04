@@ -6,12 +6,12 @@ import "./Welcome.scss";
 import { Link } from "react-router-dom";
 const Welcome = () => {
   return (
-    <div className="home-container">
+    <div className="welcome-container">
       <section className="img-container">
         {/* <img src={loginHomeImg} alt="login-home-img" /> */}
       </section>
-      <div className="hero-container">
-        <section className="home-text">
+      <div className="welcome-text-container">
+        <section className="welcome-text">
           <h1>
             Cooking a Healthy and <br /> Delicious Food <br /> Easily
           </h1>

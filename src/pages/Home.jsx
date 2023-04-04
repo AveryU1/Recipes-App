@@ -5,7 +5,8 @@ import Navbar from "../components/Navbar/Navbar";
 import SearchRecipes from "../components/SearchRecipes/SearchRecipes";
 import { useAuth } from "../context/authContext";
 import { useStateDataContext } from "../context/StateContext";
-
+import Pagination from "../features/Pagination/Pagination";
+import "./Home.scss";
 const Home = () => {
   const { user, loading } = useAuth();
 
@@ -13,10 +14,11 @@ const Home = () => {
   if (loading) return <h1>Loading</h1>;
 
   return (
-    <div>
+    <div className="home-container">
       <Navbar />
       <HeroBanner />
       <SearchRecipes />
+      <Pagination />
     </div>
   );
 };

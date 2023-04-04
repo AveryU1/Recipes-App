@@ -1,16 +1,22 @@
-
 .ingredients-container {
-    margin-bottom: 2rem;
-    h3 {
-        margin-bottom: .5rem;
-        font-size: 1.5rem;
-        color: var(--font-color);
-    }
-    .ingredientsList {
-        display: flex;
-        justify-content: start;
-        gap: 10px;
-        color: var(--font-color);
-        padding: .5rem 0;
-    }
+  margin-bottom: 2rem;
+  padding: 2rem 1rem;
+  h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--font-color);
+  }
+  @media screen and (min-width: 768px) {
+    width: 50%;
+  }
+  .ingredientsList {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    color: var(--font-color);
+    padding: 0.5rem 0;
+  }
+  @media screen and (min-width: 768px) {
+    margin: 0;
+  }
 }

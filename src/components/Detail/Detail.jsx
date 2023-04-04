@@ -7,17 +7,18 @@ import { useStateDataContext } from "../../context/StateContext";
 
 const Detail = () => {
   return (
-    <div>
-      <ImageRecipe />
-      <div className="recipeDetails-container">
+    <>
+      <div className="detail-hero__container">
+        <ImageRecipe />
+        <Ingredients />
+      </div>
+      <div className="recipeNutrinets-steps-container">
         <div className="recipeDetails-card">
-          <Ingredients />
           <Nutrients />
-
           <StepsData />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

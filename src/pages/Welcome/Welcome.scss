@@ -1,9 +1,10 @@
-.home-container {
+.welcome-container {
   background-color: #000;
   position: relative;
   height: 100vh;
   @media screen and (min-width: 768px) {
   }
+
   .img-container {
     background-image: url(../../assets/loginHome-img.jpg);
 
@@ -18,7 +19,7 @@
       height: 100vh;
     }
   }
-  .hero-container {
+  .welcome-text-container {
     @media screen and (min-width: 768px) {
       position: absolute;
       top: 50%;
@@ -30,7 +31,7 @@
       justify-content: center;
       align-items: center;
     }
-    .home-text {
+    .welcome-text {
       position: absolute;
       bottom: 32%;
       padding: 1rem;

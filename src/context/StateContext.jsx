@@ -5,6 +5,9 @@ export const stateDataContext = createContext();
 
 export const StateContext = ({ children }) => {
   const [recipes, setRecipes] = useState([]);
+  const resultsPerpage = 9;
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalResults = 100;
   const [inputSearch, setInputSearch] = useState("");
   const [recipeDetails, setRecipeDetails] = useState({});
   const [nutritionData, setNutritionData] = useState([]);
@@ -14,16 +17,43 @@ export const StateContext = ({ children }) => {
   const [badNutrients, setBadNutrients] = useState([]);
   const [search, setSearch] = useState(false);
   const [id, setId] = useState(null);
+  const indexOfLastResult = currentPage * resultsPerpage;
+  const indexOfFirstResult = indexOfLastResult - resultsPerpage;
 
-  const url = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=${inputSearch}&number=20`;
+  const url = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=${inputSearch}&offset=${indexOfFirstResult}&number=${resultsPerpage}`;
   useEffect(() => {
-    if (recipes == []) return;
-    const handleData = async () => {
-      const data = await fetchData(url, recipesOptions);
-      setRecipes(data.results);
+    const getRecipes = async () => {
+      let offset = (currentPage - 1) * resultsPerpage;
+      const fetchDataRecipes = await fetchData(
+        `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=${inputSearch}&offset=${offset}&number=${resultsPerpage}`,
+        recipesOptions
+      );
+      setRecipes(fetchDataRecipes.results);
     };
-    handleData();
-  }, [search]);
+    getRecipes();
+  }, [currentPage, search]);
+
+  const handleData = async () => {
+    const data = await fetchData(url, recipesOptions);
+    setRecipes(data?.results);
+    setCurrentPage(1);
+    console.log(currentPage);
+    console.log(data);
+  };
+
+  //const showResults = totalResults.slice(0, 50);
+  // const currentRecipe = recipes?.slice(indexOfFirstResult, indexOfLastResult);
+
+  const handlePageClick = data => {
+    console.log(data.selected + 1);
+    setCurrentPage(data.selected + 1);
+
+    // console.log(data.selected);
+    // let currentPage = data.selected + 1;
+    // console.log(currentPage);
+    // const dataFetch = await handleData(currentPage);
+    // setRecipes(dataFetch);
+  };
   const recipesSearch = [
     `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`,
     `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/nutritionWidget.json`,
@@ -55,48 +85,16 @@ export const StateContext = ({ children }) => {
     };
     handleVideos();
   }, [recipeDetails.title]);
-  // const handleInputSearch = async () => {
-  //   const recipesData = await fetchData(url, recipesOptions);
 
-  //   setRecipes(recipesData.results);
-  //   console.log(recipesData);
-  //   setInputSearch("");
-  // };
-  // useEffect(() => {
-  //   const fetchRecipesData = async () => {
-  //     const recipeUrl = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`;
-  //     const recipeDetailData = await fetchData(recipeUrl, recipesOptions);
-  //     setRecipeDetails(recipeDetailData);
-  //   };
-  //   const fetchNutritionData = async () => {
-  //     const nutritionUrl = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/nutritionWidget.json`;
-  //     const getNutritionData = await fetchData(nutritionUrl, recipesOptions);
-  //     setNutritionData(getNutritionData);
-  //     setGoodNutrients(getNutritionData.good);
-  //     setBadNutrients(getNutritionData.bad);
-  //     console.log(getNutritionData);
-  //   };
+  const pageContext = {
+    currentPage,
 
-  //   const fetchStepsRecipesData = async () => {
-  //     const stepsUrl = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/analyzedInstructions`;
-  //     const stepsDetailData = await fetchData(stepsUrl, recipesOptions);
-  //     // console.log(stepsDetailData);
-  //     setStepsData(stepsDetailData[0].steps);
-  //   };
+    setCurrentPage,
+    handlePageClick,
+    totalResults,
 
-  //   const fetchRecipesVideos = async () => {
-  //     const videosUrl = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/videos/search?query=${recipeDetails.title}`;
-  //     const videosData = await fetchData(videosUrl, recipesOptions);
-  //     console.log(videosData?.videos);
-  //     setRecipesVideos(videosData.videos);
-  //   };
-
-  //   fetchRecipesData();
-  //   fetchNutritionData();
-  //   fetchStepsRecipesData();
-  //   fetchRecipesVideos();
-  // }, [id, recipeDetails.title]);
-
+    resultsPerpage,
+  };
   const idContext = {
     setId,
   };
@@ -105,6 +103,7 @@ export const StateContext = ({ children }) => {
     setInputSearch,
     setSearch,
     search,
+    handleData,
   };
   const recipesDataContext = {
     recipes,
@@ -129,6 +128,7 @@ export const StateContext = ({ children }) => {
     ...recipesDataContext,
     ...searchContext,
     ...idContext,
+    ...pageContext,
   };
   return (
     <stateDataContext.Provider value={globalContext}>

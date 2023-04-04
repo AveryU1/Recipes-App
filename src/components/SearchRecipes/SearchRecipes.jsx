@@ -4,7 +4,7 @@ import Recipes from "../Recipes/Recipes";
 import "./SearchRecipes.scss";
 import { useStateDataContext } from "../../context/StateContext";
 const SearchRecipes = () => {
-  const { inputSearch, setInputSearch, setSearch, search } =
+  const { inputSearch, setInputSearch, setSearch, search, handleData } =
     useStateDataContext();
 
   return (
@@ -15,7 +15,7 @@ const SearchRecipes = () => {
           value={inputSearch}
           onChange={e => setInputSearch(e.target.value.toLocaleLowerCase())}
         />
-        <BiSearch onClick={() => setSearch(!search)} />
+        <BiSearch onClick={(() => setSearch(!search), handleData)} />
       </div>
       <Recipes />
     </div>

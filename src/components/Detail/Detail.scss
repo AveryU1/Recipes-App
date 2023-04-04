@@ -1,9 +1,17 @@
-.recipeDetails-container {
-  padding: 2rem 1rem 1rem;
+.detail-hero__container {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+}
+
+.recipeNutrinets-steps-container {
   .recipeDetails-card {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding: 2rem 1rem;
 
     img {
       width: 100%;
@@ -11,6 +19,13 @@
       object-fit: cover;
       border-radius: 10px;
       margin: 1rem 0;
+    }
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      justify-content: center;
+      padding-left: 0;
+      padding-right: 0;
+      gap: 2rem;
     }
   }
 }
