@@ -1,5 +1,5 @@
 import React from "react";
-import heroImg from "../../assets/hero.jpg";
+import heroImg from "../../assets/hero.webp";
 import "./HeroBanner.scss";
 import { BiDownArrowAlt } from "react-icons/bi";
 import { useAuth } from "../../context/authContext";
